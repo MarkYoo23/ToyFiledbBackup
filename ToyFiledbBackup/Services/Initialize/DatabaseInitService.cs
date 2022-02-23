@@ -2,11 +2,11 @@
 
 namespace ToyFiledbBackup.App.Services.Initialize
 {
-    public class InitDatabaseService : IInitDatabaseService
+    public class DatabaseInitService : IDatabaseInitService
     {
         private readonly SampleDbContext _context;
 
-        public InitDatabaseService(SampleDbContext context)
+        public DatabaseInitService(SampleDbContext context)
         {
             _context = context;
         }

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ToyFiledbbackup.Infrastructure.Contexts;
 using ToyFiledbbackup.Infrastructure.Repositories;
 using ToyFiledbBackup.Domain.Repositories;
+using ToyFiledbBackup.Domain.Services;
 
 namespace ToyFiledbBackup.App.Services.Initialize
 {
@@ -16,7 +17,13 @@ namespace ToyFiledbBackup.App.Services.Initialize
             serviceCollection.AddDbContext<SampleDbContext>(option => option.UseSqlite(sampleDbPath));
 
             serviceCollection.AddScoped<ISampleSystemLogRepository, SampleSystemLogRepository>();
-            serviceCollection.AddScoped<IInitDatabaseService, InitDatabaseService>();
+            serviceCollection.AddScoped<ISampleBackupRepository, SampleBackupRepository>(serviceProvider => 
+            {
+                return new SampleBackupRepository(sampleDbPath);
+            });
+
+            serviceCollection.AddScoped<IDatabaseInitService, DatabaseInitService>();
+            serviceCollection.AddScoped<IDatabaseBackupService, DatabaseBackupService>();
 
             return serviceCollection.BuildServiceProvider();
         }

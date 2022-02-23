@@ -1,6 +1,6 @@
 ﻿namespace ToyFiledbBackup.App.Services.Initialize
 {
-    public interface IInitDatabaseService
+    public interface IDatabaseInitService
     {
         Task InitDatabaseAsync();
     }
