@@ -7,8 +7,8 @@ namespace ToyFiledbBackup.Domain.Repositories
         SampleSystemLog GetAsync(int id);
         IEnumerable<SampleSystemLog> GetAllAsync(int id);
 
-        void AddAsync(SampleSystemLog log);
-        void UpdateAsync(SampleSystemLog log);
-        void RemoveAsync(SampleSystemLog log);
+        Task AddAsync(SampleSystemLog log);
+        Task UpdateAsync(SampleSystemLog log);
+        Task RemoveAsync(SampleSystemLog log);
     }
 }

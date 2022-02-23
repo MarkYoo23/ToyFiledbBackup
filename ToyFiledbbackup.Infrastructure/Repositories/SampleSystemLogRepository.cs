@@ -15,9 +15,9 @@ namespace ToyFiledbbackup.Infrastructure.Repositories
             _context = context;
         }
 
-        public void AddAsync(SampleSystemLog log)
+        public async Task AddAsync(SampleSystemLog log)
         {
-            throw new NotImplementedException();
+            await _context.AddAsync(log);
         }
 
         public IEnumerable<SampleSystemLog> GetAllAsync(int id)
@@ -30,12 +30,12 @@ namespace ToyFiledbbackup.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public void RemoveAsync(SampleSystemLog log)
+        public Task RemoveAsync(SampleSystemLog log)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateAsync(SampleSystemLog log)
+        public Task UpdateAsync(SampleSystemLog log)
         {
             throw new NotImplementedException();
         }
